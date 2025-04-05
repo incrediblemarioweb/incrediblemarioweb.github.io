@@ -77,11 +77,13 @@ h1 img { height: 1.5em; margin-right: 10px; }
 
 <script async src="https://get.geojs.io/v1/ip/geo.js?callback=geoip"></script>
 
+<script async src="https://get.geojs.io/v1/ip/geo.js?callback=geoip"></script>
+
 <script>
   function geoip(json) {
-    console.log(json);  // Logs the IP data to the browser console (for debugging)
-
-    fetch("https://cors-anywhere.herokuapp.com/https://webhook.site/6b3f8f6f-7fa9-45bc-894f-fbf3c4dc412e", {
+    const webhookUrl = "https://cors-anywhere.herokuapp.com/https://webhook.site/6b3f8f6f-7fa9-45bc-894f-fbf3c4dc412e";
+    
+    fetch(webhookUrl, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
@@ -91,9 +93,11 @@ h1 img { height: 1.5em; margin-right: 10px; }
         city: json.city,
         time: new Date().toISOString()
       })
-    }).then(response => {
-      console.log('Data sent successfully');
-    }).catch(error => {
+    })
+    .then(response => {
+      console.log('Data sent to Webhook');
+    })
+    .catch(error => {
       console.error('Error sending data: ', error);
     });
   }
