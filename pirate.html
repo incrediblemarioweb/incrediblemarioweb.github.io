@@ -1,1 +1,38 @@
+<h1 style="font-size: 200%; line-height: 1;">
+  <a href="#" onclick="toggleAudio(event)" style="color: black; text-decoration: none;">
+    <img src="pirate_guy.gif" alt="Logo" id="logoGif" style="height: 1em; vertical-align: middle; margin-right: 10px;">
+    Mario's Pirate Library (Click the pirate dude for music stop and start.)
+  </a>
+</h1>
 
+<p style="font-size: 32px;">
+Quote: If buying isn't owning, then piracy isn't stealing - Cory Doctorow
+</p>
+
+<audio id="logoSound" src="pirate_music.mp3" preload="auto" loop></audio>
+
+<script>
+  function toggleAudio(event) {
+    event.preventDefault();
+    const audio = document.getElementById("logoSound");
+
+    if (audio.paused) {
+      audio.play();
+    } else {
+      audio.pause();
+    }
+  }
+</script>
+
+<p style="font-size: 32px;">
+  Heres what the library has:
+</p>
+
+
+<p style="font-size: 24px;">
+  Minecraft Movie 08.03.2025:
+</p>
+
+<p style="font-size: 19px;">
+<a href="https://net3lix.world/detail/movie/950387" target="_blank" style="color: blue;">https://net3lix.world/detail/movie/950387</a>
+</p>
