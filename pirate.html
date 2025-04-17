@@ -1,39 +1,122 @@
-<title>Mario's Pirate Library</title>
-<h1 style="font-size: 200%; line-height: 1;">
-  <a href="#" onclick="toggleAudio(event)" style="color: black; text-decoration: none;">
-    <img src="pirate_guy.gif" alt="Logo" id="logoGif" style="height: 1em; vertical-align: middle; margin-right: 10px;">
-    Mario's Pirate Library (Click the pirate dude for music stop and start.)
-  </a>
-</h1>
-
-<p style="font-size: 32px;">
-Quote: If buying isn't owning, then piracy isn't stealing - Cory Doctorow
-</p>
-
-<audio id="logoSound" src="pirate_music.mp3" preload="auto" loop></audio>
-
-<script>
-  function toggleAudio(event) {
-    event.preventDefault();
-    const audio = document.getElementById("logoSound");
-
-    if (audio.paused) {
-      audio.play();
-    } else {
-      audio.pause();
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Mario's Pirate Library</title>
+  <style>
+    body {
+      margin: 40px;
+      font: 16px "Helvetica Neue", Helvetica, sans-serif;
+      line-height: 1.6;
+      background-color: #fdfdfd;
+      color: #222;
     }
-  }
-</script>
 
-<p style="font-size: 32px;">
-  Heres what the library has:
-</p>
+    h1 {
+      font-size: 200%;
+      line-height: 1;
+      display: flex;
+      align-items: center;
+      margin-bottom: 10px;
+    }
 
+    h1 a {
+      text-decoration: none;
+      color: #000;
+      display: flex;
+      align-items: center;
+    }
 
-<p style="font-size: 24px;">
-  Minecraft Movie 08.03.2025:
-</p>
+    #logoGif {
+      height: 1.2em;
+      margin-right: 12px;
+      vertical-align: middle;
+    }
 
-<p style="font-size: 19px;">
-<a href="https://net3lix.world/detail/movie/950387" target="_blank" style="color: blue;">https://net3lix.world/detail/movie/950387</a>
-</p>
+    .bio {
+      margin-bottom: 40px;
+      font-size: 15px;
+      max-width: 600px;
+    }
+
+    .link-list {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 20px;
+    }
+
+    .link-item {
+      border: 1px solid #ccc;
+      padding: 20px;
+      border-radius: 8px;
+      transition: box-shadow 0.3s ease;
+      background: #fff;
+    }
+
+    .link-item:hover {
+      box-shadow: 0 3px 12px rgba(0, 0, 0, 0.15);
+    }
+
+    .link-item a {
+      font-weight: bold;
+      color: #0070f3;
+      text-decoration: none;
+      font-size: 18px;
+    }
+
+    .link-item a:hover {
+      text-decoration: underline;
+    }
+
+    .link-item p {
+      margin-top: 5px;
+      font-size: 14px;
+      color: #444;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>
+    <a href="/" onclick="playAudio(event)">
+      <img src="pirate_guy.gif" alt="Logo" id="logoGif">
+      Mario's Pirate Library
+    </a>
+  </h1>
+
+  <audio id="logoSound" src="pirate_music.mp3" preload="auto"></audio>
+
+  <div class="bio">
+    <strong>About this library:</strong><br>
+    Welcome aboard! Heres like "The Pirate Bay" except me (Mario) uploads stuff thru links! Also some wise words: If buying isn't owning, then piracy isn't stealing.-Cory Doctorow
+  </div>
+
+  <div class="link-list">
+    <div class="link-item">
+      <a href="https://hexa.watch/watch/movie/950387" target="_blank">Minecraft Movie link with CGI</a>
+      <p>The Minecraft Movie with CGI.</p>
+    </div>
+
+    <div class="link-item">
+      <a href="https://net3lix.world/detail/movie/950387" target="_blank">Minecraft Movie link without CGI</a>
+      <p>The Minecraft Movie without CGI.</p>
+    </div>
+  </div>
+
+  <script>
+    function playAudio(event) {
+      event.preventDefault();
+      const audio = document.getElementById("logoSound");
+      if (audio.paused) {
+        audio.loop = true;
+        audio.play();
+      } else {
+        audio.pause();
+        audio.currentTime = 0;
+      }
+    }
+  </script>
+
+</body>
+</html>
