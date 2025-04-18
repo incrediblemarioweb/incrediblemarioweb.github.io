@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>connectD4: human or ai?</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <div id="start-screen">
+    <h1>Are you ready to have some fun?</h1>
+    <button id="ready-btn">Ready</button>
+  </div>
+
+  <div id="loading-screen" style="display: none;">
+    <h2 id="loading-text">Loading...</h2>
+  </div>
+
+  <div id="game-container" style="display: none;">
+    <h1>Connect Four: Human or AI?</h1>
+    <div id="game-board">
+    </div>
+    <p>Guess who you played against:</p>
+    <button id="guess-human">Human</button>
+    <button id="guess-ai">AI</button>
+    <p id="result-text"></p>
+    <h3>Your Score: <span id="score">0</span></h3>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
