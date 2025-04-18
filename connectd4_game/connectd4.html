@@ -1,1 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>connectD4: human or ai</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="startPrompt">
+        <h2>Are you ready to have some fun?</h2>
+        <button id="readyButton">Ready</button>
+    </div>
 
+    <div id="loadingScreen" class="hidden">
+        <h2>Loading...</h2>
+        <p id="loadingText">Preparing the game...</p>
+    </div>
+
+    <div id="gameBoard" class="hidden">
+    </div>
+
+    <script src="game.js"></script>
+    <script src="ai.js"></script>
+    <script>
+        const readyButton = document.getElementById("readyButton");
+        const startPrompt = document.getElementById("startPrompt");
+        const loadingScreen = document.getElementById("loadingScreen");
+        const loadingText = document.getElementById("loadingText");
+        const gameBoard = document.getElementById("gameBoard");
+
+        const loadingMessages = [
+            "Almost there...",
+            "Just a few more seconds...",
+            "Your opponent is getting ready...",
+            "Loading your future victory...",
+            "Tuning the game engine...",
+            "Get ready for some intense fun!"
+        ];
+
+        function randomLoadingText() {
+            const randomIndex = Math.floor(Math.random() * loadingMessages.length);
+            loadingText.textContent = loadingMessages[randomIndex];
+        }
+
+        readyButton.onclick = function() {
+            startPrompt.classList.add("hidden");
+            loadingScreen.classList.remove("hidden");
+
+            let intervalId = setInterval(randomLoadingText, 2000);
+
+            setTimeout(function() {
+                clearInterval(intervalId);
+                loadingScreen.classList.add("hidden");
+                gameBoard.classList.remove("hidden");
+                startGame();
+            }, 5000);
+        };
+
+        function startGame() {
+            console.log("Game Started!");
+        }
+    </script>
+</body>
+</html>
