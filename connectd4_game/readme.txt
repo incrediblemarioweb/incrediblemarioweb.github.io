@@ -1,5 +1,5 @@
 whatcha doin.. you aren''t supposed to be here..
-welp, too late i guess heres some useless project info that im working on
+welp, too late i guess heres some info
 
-connectd4, aka. Connect the four is basically in my website except you play against either a human or AI then you will have to guess. If you guess right, you will get 1 point.
+bdoom-browser doom. Do i need to explain more?
 made by mario :D
