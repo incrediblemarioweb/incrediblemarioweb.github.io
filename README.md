@@ -1,1 +1,2 @@
-# Sorry! I took down the website for stuff.
+# Error 404!
+# Try again another time.
