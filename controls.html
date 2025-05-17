@@ -2,62 +2,101 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Controls Tutorial</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Undertale Controls | Incredible Mario Web</title>
   <style>
     body {
-      font-family: Arial, sans-serif;
-      background-color: #111;
-      color: #eee;
       margin: 0;
-      padding: 2rem;
+      padding: 0;
+      background: #131313;
+      color: #fff;
+      font-family: Arial, sans-serif;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+    }
+
+    .box {
+      background: #1d1d1d;
+      padding: 30px 40px;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.7);
+      max-width: 400px;
+      width: 90%;
+      text-align: center;
     }
 
     h1 {
-      color: #fce303;
+      font-size: 22px;
+      margin-bottom: 10px;
+      font-weight: normal;
+      color: #4deeea;
+      text-shadow: 0 0 10px #4deeea;
+    }
+
+    p, ol {
+      text-align: left;
+      color: #ccc;
+      font-size: 16px;
+      margin-bottom: 20px;
+      line-height: 1.5;
     }
 
     ol {
-      line-height: 1.6;
+      padding-left: 20px;
     }
 
-    a {
-      color: #00ffff;
+    a.blue-link {
+      color: #22a;
       text-decoration: none;
     }
-
-    a:hover {
+    a.blue-link:hover {
       text-decoration: underline;
     }
 
-    .download-link {
-      margin-top: 2rem;
+    .download-btn {
       display: inline-block;
-      background: #220000;
-      padding: 0.75rem 1.5rem;
-      border: 2px solid #ff4c4c;
-      color: #ff4c4c;
+      background: linear-gradient(to right, #4caf50, #2e7d32);
+      color: white;
+      padding: 14px 30px;
+      font-size: 18px;
       font-weight: bold;
-      border-radius: 6px;
-      transition: all 0.2s ease;
+      border: none;
+      border-radius: 5px;
+      text-decoration: none;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+    .download-btn:hover {
+      background: linear-gradient(to right, #388e3c, #1b5e20);
     }
 
-    .download-link:hover {
-      background: #ff4c4c;
-      color: #000;
+    @media (max-width: 480px) {
+      .box {
+        padding: 20px;
+      }
+      p, ol {
+        font-size: 14px;
+      }
+      .download-btn {
+        font-size: 16px;
+        padding: 12px 24px;
+      }
     }
   </style>
 </head>
 <body>
-  <h1>Controls Tutorial</h1>
-  <h2>Undertale Controls</h2>
-  <ol>
-    <li>Download AutoHotkey v1: <a href="https://autohotkeys.com" target="_blank">https://autohotkeys.com</a></li>
-    <li>Download my .zip file</li>
-    <li>Unzip it.</li>
-    <li>Run the .ahk file inside whenever you play Undertale.</li>
-  </ol>
-
-  <a href="download.html" class="download-link">Download</a>
+  <div class="box">
+    <h1>Undertale Controls</h1>
+    <p><strong>Undertale WASD and F11 Controls!</strong></p>
+    <ol>
+      <li>Download AutoHotkey V1: <a href="https://autohotkey.com" target="_blank" class="blue-link">https://autohotkey.com</a></li>
+      <li>Download my .zip file</li>
+      <li>Unzip it</li>
+      <li>Run the script whenever you want to play Undertale.</li>
+    </ol>
+    <a href="download.html" class="download-btn">Download</a>
+  </div>
 </body>
 </html>
