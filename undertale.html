@@ -2,110 +2,101 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Undertale Controls</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Undertale Controls | Incredible Mario Web</title>
   <style>
     body {
-      margin: 40px;
-      font: 16px "Helvetica Neue", Helvetica, sans-serif;
-      line-height: 1.6;
-      background-color: #fdfdfd;
-      color: #222;
+      margin: 0;
+      padding: 0;
+      background: #131313;
+      color: #fff;
+      font-family: Arial, sans-serif;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+    }
+
+    .box {
+      background: #1d1d1d;
+      padding: 30px 40px;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.7);
+      max-width: 400px;
+      width: 90%;
+      text-align: center;
     }
 
     h1 {
-      font-size: 200%;
-      line-height: 1;
-      display: flex;
-      align-items: center;
+      font-size: 22px;
       margin-bottom: 10px;
+      font-weight: normal;
+      color: #4deeea;
+      text-shadow: 0 0 10px #4deeea;
     }
 
-    h1 a {
+    p, ol {
+      text-align: left;
+      color: #ccc;
+      font-size: 16px;
+      margin-bottom: 20px;
+      line-height: 1.5;
+    }
+
+    ol {
+      padding-left: 20px;
+    }
+
+    a.blue-link {
+      color: #22a;
       text-decoration: none;
-      color: #000;
-      display: flex;
-      align-items: center;
     }
-
-    #logoGif {
-      height: 1.2em;
-      margin-right: 12px;
-      vertical-align: middle;
-    }
-
-    .bio {
-      margin-bottom: 40px;
-      font-size: 15px;
-      max-width: 600px;
-    }
-
-    .link-list {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 20px;
-    }
-
-    .link-item {
-      border: 1px solid #ccc;
-      padding: 20px;
-      border-radius: 8px;
-      transition: box-shadow 0.3s ease;
-      background: #fff;
-    }
-
-    .link-item:hover {
-      box-shadow: 0 3px 12px rgba(0, 0, 0, 0.15);
-    }
-
-    .link-item a {
-      font-weight: bold;
-      color: #0070f3;
-      text-decoration: none;
-      font-size: 18px;
-    }
-
-    .link-item a:hover {
+    a.blue-link:hover {
       text-decoration: underline;
     }
 
-    .link-item p {
-      margin-top: 5px;
-      font-size: 14px;
-      color: #444;
+    .download-btn {
+      display: inline-block;
+      background: linear-gradient(to right, #4caf50, #2e7d32);
+      color: white;
+      padding: 14px 30px;
+      font-size: 18px;
+      font-weight: bold;
+      border: none;
+      border-radius: 5px;
+      text-decoration: none;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+    .download-btn:hover {
+      background: linear-gradient(to right, #388e3c, #1b5e20);
+    }
+
+    @media (max-width: 480px) {
+      .box {
+        padding: 20px;
+      }
+      p, ol {
+        font-size: 14px;
+      }
+      .download-btn {
+        font-size: 16px;
+        padding: 12px 24px;
+      }
     }
   </style>
 </head>
 <body>
-
-<h1>
-	<a href="/">
-		Undertale Controls
-	</a>
-</h1>
-
-<p>
-    Firstly: Install AutoHotkey V1!! It HAS to be V1! (<a href="https://autohotkey.com" target="_blank" style="color: blue;">autohotkey.com</a>)
-</p>
-
-<p>
-    Secondly: Create a file named however you like, BUT it needs to have .ahk at end, example: controls.ahk
-</p>
-
-<p>
-	Thirdly: Here is the code you need:
-</p>
-
-<a href="download.html" style="
-    display:inline-block;
-    padding:10px 20px;
-    background:#4CAF50;
-    color:white;
-    text-decoration:none;
-    border-radius:5px;
-">
-  Download AHK Script
-</a>
-
+  <div class="box">
+    <h1>Undertale Controls</h1>
+    <p><strong>Undertale WASD and F11 Controls!</strong></p>
+    <ol>
+      <li>Download AutoHotkey V1: <a href="https://autohotkey.com" target="_blank" class="blue-link">https://autohotkey.com</a></li>
+      <li>Download my .zip file</li>
+      <li>Unzip it</li>
+      <li>Run the script whenever you want to play Undertale.</li>
+    </ol>
+    <a href="download.html" class="download-btn">Download</a>
+  </div>
 </body>
 </html>
