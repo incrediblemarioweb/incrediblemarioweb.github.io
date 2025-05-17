@@ -1,7 +1,7 @@
 <!doctype html>
 <meta charset="utf-8" />
 <title>the incredible mario web</title>
-<meta name="viewport" content="width=device-width initial-scale=1">
+<meta name="viewport" content="width=device-width initial-scale=1" />
 
 <link rel="icon" href="cool.png" type="image/png" />
 
@@ -10,7 +10,7 @@ body {
 	margin: 40px;
 	font: 16px "Helvetica Neue", Helvetica, sans-serif;
 	line-height: 1.5;
-	background-color: #eff6d3a;
+	background-color: #fff;
 }
 code, pre { font-family: Lucida Console, Monaco, monospace; }
 a { text-decoration: none; color: #22a; }
@@ -48,12 +48,12 @@ h1 img { height: 1.5em; margin-right: 10px; }
 </div>
 
 <div class="box">
-    <h4><a href="https://incrediblemarioweb.fpr.net/controls.html" target="_blank">Undertale Controls</a></h4>
+    <h4><a href="undertale.html" target="_blank">Undertale Controls</a></h4>
     How to play Undertale with WASD and F11
 </div>
 
 <p style="font-size: 19px;">
- ---------------------------------------------------------------------------------------------------------------------</a>
+ ---------------------------------------------------------------------------------------------------------------------
 </p>
 
 <p style="font-size: 19px;">
@@ -62,14 +62,65 @@ h1 img { height: 1.5em; margin-right: 10px; }
 
 <p style="font-size: 19px;">
   My GitHub: <a href="https://github.com/mariocrazyy" target="_blank">mariocrazyy</a>
+</p>
 
 <head>
 <meta property="og:title" content="🏴‍☠️ Mario's INCREDIBLE web" />
-<meta property="og:description" content="Mario's INCREDIBLE website! You can find Mario's apps, discord server even pirate section where Mario has uploaded some free stuff!"
+<meta property="og:description" content="Mario's INCREDIBLE website! You can find Mario's apps, discord server even pirate section where Mario has uploaded some free stuff!"/>
 <meta property="og:image" content="https://incrediblemarioweb.fpr.net/cool.png" />
 <meta property="og:url" content="https://incrediblemarioweb.fpr.net/" />
 <meta property="og:type" content="website" />
 </head>
+
+<div style="
+  position: absolute;
+  right: 5%;
+  top: 55%;
+  background-color: #1a1a1a;
+  padding: 1.5rem;
+  border: 2px solid #333;
+  border-radius: 8px;
+  color: #ddd;
+  font-family: Arial, sans-serif;
+  width: 280px;
+  text-align: center;
+">
+  <h3 style="margin-top: 0; color: #fff;">.NBT to Schematic Converter</h3>
+  
+  <form action="convert.php" method="post" enctype="multipart/form-data">
+    <label for="nbtFile">Choose .nbt file:</label><br><br>
+    <input type="file" name="nbtFile" id="nbtFile" accept=".nbt" required style="
+      background-color: #111;
+      color: #ddd;
+      border: 1px solid #444;
+      padding: 0.4rem;
+      border-radius: 4px;
+    "><br><br>
+
+    <label for="format">Output format:</label><br>
+    <select name="format" id="format" style="
+      margin-top: 0.5rem;
+      background-color: #111;
+      color: #ddd;
+      border: 1px solid #444;
+      padding: 0.4rem;
+      border-radius: 4px;
+    ">
+      <option value="schematic">.schematic</option>
+      <option value="litematic">.litematic</option>
+    </select><br><br>
+
+    <button type="submit" style="
+      background-color: #333;
+      color: #fff;
+      font-weight: bold;
+      padding: 0.5rem 1rem;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+    ">Convert</button>
+  </form>
+</div>
 
 </body>
 </html>
