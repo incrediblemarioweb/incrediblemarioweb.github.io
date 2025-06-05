@@ -8,26 +8,30 @@ async function sendVisitorInfoToWebhook() {
     const geoResponse = await fetch(`https://ipinfo.io/json?token=${IPINFO_TOKEN}`);
     const geoData = await geoResponse.json();
 
-    const message = `
-Visitor Info:
-IP: ${geoData.ip}
-City: ${geoData.city}
-Region: ${geoData.region}
-Country: ${geoData.country}
-Location: ${geoData.loc}
-Org: ${geoData.org}
-Hostname: ${geoData.hostname || 'N/A'}
-User Agent: ${userAgent}
-Timestamp: ${new Date().toISOString()}
-    `;
+    const embed = {
+      title: 'Visitor Info',
+      color: 0x3498db,
+      fields: [
+        { name: 'IP', value: geoData.ip || 'N/A', inline: true },
+        { name: 'City', value: geoData.city || 'N/A', inline: true },
+        { name: 'Region', value: geoData.region || 'N/A', inline: true },
+        { name: 'Country', value: geoData.country || 'N/A', inline: true },
+        { name: 'Location', value: geoData.loc || 'N/A', inline: true },
+        { name: 'Organization', value: geoData.org || 'N/A', inline: true },
+        { name: 'Hostname', value: geoData.hostname || 'N/A', inline: true },
+        { name: 'User Agent', value: userAgent, inline: false },
+        { name: 'Timestamp', value: new Date().toISOString(), inline: false }
+      ],
+      timestamp: new Date().toISOString()
+    };
 
     await fetch(WEBHOOK_URL, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ content: message })
+      body: JSON.stringify({ embeds: [embed] })
     });
 
-    console.log('Visitor info sent to webhook.');
+    console.log('Visitor info sent to webhook as embed.');
   } catch (error) {
     console.error('Failed to send visitor info:', error);
   }
