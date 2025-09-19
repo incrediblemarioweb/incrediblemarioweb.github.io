@@ -27,9 +27,9 @@
 
   /* Modal overlay style */
   #imgModal {
-    display: none; /* Hidden by default */
+    display: none;
     position: fixed;
-    z-index: 10000; /* On top */
+    z-index: 10000;
     left: 0;
     top: 0;
     width: 100vw;
@@ -45,6 +45,48 @@
     box-shadow: 0 0 20px rgba(255,255,255,0.3);
     cursor: pointer;
   }
+
+  /* Enhanced CS2-style C4 timer */
+  #c4Clock {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    background: linear-gradient(#1a1a1a, #333);
+    border: 2px solid #555;
+    border-radius: 10px;
+    padding: 12px 25px;
+    color: #ff3b3b;
+    font-family: 'Digital-7 Mono', monospace;
+    font-size: 26px;
+    letter-spacing: 2px;
+    text-shadow: 0 0 5px #ff3b3b, 0 0 10px rgba(255,0,0,0.3);
+    box-shadow: 0 2px 8px rgba(0,0,0,0.5), inset 0 0 10px rgba(255,0,0,0.2);
+    z-index: 10000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: fixed;
+  }
+
+  #c4Clock span.colon {
+    animation: blink 1s step-start infinite;
+  }
+
+  @keyframes blink {
+    50% { opacity: 0; }
+  }
+
+  /* Optional small LED indicators for style */
+  #c4Clock::before, #c4Clock::after {
+    content: '';
+    display: block;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: red;
+    margin: 0 6px;
+  }
+
 </style>
 
 <h1>
@@ -53,6 +95,9 @@
     Welcome to the incredible mario web!!
   </a>
 </h1>
+
+<!-- CS2-style C4 timer top-right -->
+<div id="c4Clock"><span id="hours">12</span><span class="colon">:</span><span id="minutes">00</span><span class="colon">:</span><span id="seconds">00</span> <span id="ampm">AM</span></div>
 
 <p>
     Last Updated: 19.09.2025.
@@ -148,6 +193,25 @@
     modal.style.display = 'none';
   }
   modalImg.onclick = closeModal;
+
+  function updateC4Clock() {
+    const now = new Date();
+    let hours = now.getHours();
+    const minutes = String(now.getMinutes()).padStart(2, '0');
+    const seconds = String(now.getSeconds()).padStart(2, '0');
+    const ampm = hours >= 12 ? 'PM' : 'AM';
+    hours = hours % 12;
+    hours = hours ? hours : 12;
+    hours = String(hours).padStart(2, '0');
+
+    document.getElementById('hours').textContent = hours;
+    document.getElementById('minutes').textContent = minutes;
+    document.getElementById('seconds').textContent = seconds;
+    document.getElementById('ampm').textContent = ampm;
+  }
+
+  updateC4Clock();
+  setInterval(updateC4Clock, 1000);
 </script>
 
 <head>
@@ -160,8 +224,3 @@
 
 </body>
 </html>
-
-
-
-
-
