@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Reaction Test</title>
+  <style>
+    html,body {
+      height: 100%;
+      margin: 0;
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+      -webkit-user-select: none;
+      -ms-user-select: none;
+      user-select: none;
+    }
+    
+    #stage {
+      width: 100%;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+    }
+
+    #ui {
+      display: none;
+      text-align: center;
+      background: rgba(255,255,255,0.92);
+      padding: 24px 32px;
+      border-radius: 12px;
+      box-shadow: 0 6px 30px rgba(0,0,0,0.25);
+      transform: translateY(-10px);
+    }
+
+    #timeText {
+      font-size: 2.5rem;
+      font-weight: 700;
+      margin-bottom: 14px;
+      color: #111;
+      letter-spacing: -0.02em;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 10px 16px;
+      border-radius: 8px;
+      border: none;
+      font-weight: 600;
+      cursor: pointer;
+      background: #111;
+      color: white;
+      font-size: 1rem;
+    }
+
+    #hint {
+      position: absolute;
+      bottom: 18px;
+      left: 50%;
+      transform: translateX(-50%);
+      color: rgba(255,255,255,0.9);
+      font-size: 0.9rem;
+      pointer-events: none;
+    }
+  </style>
+</head>
+<body>
+  <div id="stage" aria-live="polite" role="button" tabindex="0">
+    <!-- UI appears only after click -->
+    <div id="ui" role="dialog" aria-hidden="true">
+      <div id="timeText" aria-live="polite"></div>
+      <button id="againBtn" class="btn">React Again</button>
+    </div>
+    <div id="hint" aria-hidden="true">Click when it turns green</div>
+  </div>
+
+  <script>
+    (function () {
+      const stage = document.getElementById('stage');
+      const ui = document.getElementById('ui');
+      const timeText = document.getElementById('timeText');
+      const againBtn = document.getElementById('againBtn');
+      const hint = document.getElementById('hint');
+
+      let state = 'waiting';
+      let greenAt = null;
+      let timeoutId = null;
+
+      function randomDelay() {
+        return Math.floor(Math.random() * 5000) + 1000;
+      }
+
+      function formatElapsed(ms) {
+        if (ms < 1000) {
+          re
